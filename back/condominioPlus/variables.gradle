@@ -1,0 +1,14 @@
+ext{
+
+    //version of frameworks
+    springBootVersion = '2.6.3'
+    swagger2Version = '2.8.0'
+
+    //Sonar Mode
+    sonarKey = 'thiagodorea_condominioplus'
+    sonarOrganization = 'hiagodorea'
+    sonarUrl = 'https://sonarcloud.io'
+
+    //Version of Mapper
+    mapstructVersion = '1.4.2.Final'
+}
