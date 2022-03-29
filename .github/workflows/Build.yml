@@ -32,15 +32,15 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Grant execute permission for gradlew
         run: chmod +x ./back/condominioPlus/gradlew
-      - name: SonarCloud scan
-        uses: sonarsource/sonarcloud-github-action@master
+#       - name: SonarCloud scan
+#         uses: sonarsource/sonarcloud-github-action@master
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        
+      - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        
-      #- name: Build and analyze
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #  run: ./back/condominioPlus/gradlew build sonarqube --info 
+        run: ./back/condominioPlus/gradlew build jacocoTestReport sonarqube --info 
 
